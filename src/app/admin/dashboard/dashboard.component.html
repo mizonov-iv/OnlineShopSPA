@@ -1,0 +1,36 @@
+<div *ngIf="products.length; else loading">
+    <h2 class="text-center">Страница управления товарами</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Наименование</th>
+                <th>Стоимость</th>
+                <th>Дата создания</th>
+                <th>Открыть</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let product of products; let idx = index">
+                <td>{{idx + 1}}</td>
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.date | date : 'medium' }}</td>
+                <td>
+                    <button class="btn btn-dark" [routerLink]="['/admin', 'product', 
+                    product.id, 'edit']">Открыть</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="remove(product.id)">Удалить</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Загрузка...</p>
+</ng-template>

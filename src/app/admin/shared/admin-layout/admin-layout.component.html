@@ -1,0 +1,33 @@
+<nav class="navbar bg-dark">
+    <h1>
+        <a routerLink="/">Online Shop</a>
+    </h1>
+
+    <ul *ngIf="auth.isAuthenticated(); else login">
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin/', 'dashboard']">Dashboard</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin/', 'add']">Добавить товар</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['/admin/', 'orders']">Заказы</a>
+        </li>
+        <li routerLinkActive="active">
+            <a href="#" (click)="logout($event)">Выйти</a>
+        </li>
+    </ul>
+    <ng-template #login>
+        <ul>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/admin/', 'login']">Войти</a>
+            </li>
+        </ul>
+    </ng-template>
+
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,21 @@
+<nav class="navbar bg-dark">
+    <h2>Online-shop</h2>
+    <ul>
+        <li routerLinkActive="active">
+            <a (click)="setType('Phone')">Телефоны</a>
+        </li>
+        <li routerLinkActive="active">
+            <a (click)="setType('Tablet')">Планшеты</a>
+        </li>
+        <li routerLinkActive="active">
+            <a (click)="setType('Laptop')">Ноутбуки</a>
+        </li>
+        <li routerLinkActive="active">
+            <a (click)="setType('Cart')" [routerLink]="['/cart']" href="">Корзина</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
